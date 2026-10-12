@@ -102,17 +102,24 @@ cargo run -p gridcraft-ui-egui --example snapshot -- --sample sales C:\temp\capt
 Verificado: produce un PNG de 2880×1800 con ribbon, tabla estilizada, data bars, sparklines y
 gráficos renderizados por la GPU real.
 
-## 6. Versión web (WASM) — aún no instalada en esta máquina
+## 6. Versión web (WASM) — verificada en esta máquina
 
-Mismo código Rust compilado a `wasm32`. Requiere dos pasos previos (no hechos todavía acá):
+Mismo código Rust compilado a `wasm32` (build release medido: **2m 22s**):
 
 ```powershell
-rustup target add wasm32-unknown-unknown   # target WASM
-scoop install trunk                        # o: cargo install trunk
+rustup target add wasm32-unknown-unknown   # target WASM (una sola vez)
+scoop install trunk                        # trunk 0.21.14 (una sola vez)
 
 cd apps\gridcraft-web
 trunk serve --release                      # → http://127.0.0.1:8771
 ```
+
+- Trunk 0.21 **descarga automáticamente** el `wasm-bindgen` y `wasm-opt` que matchean el
+  `Cargo.lock` — no hace falta instalar esas CLIs a mano.
+- La salida queda en `dist\web` (config en `apps/gridcraft-web/Trunk.toml`).
+- `?sample=sales` en la URL abre el tablero de ejemplo; abrir archivos propios usa el file
+  picker del navegador o arrastrar el archivo a la ventana.
+- Para detener el servidor: `Get-Process trunk | Stop-Process`.
 
 ## 7. Solución de problemas
 

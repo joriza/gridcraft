@@ -11,6 +11,7 @@ del estado del repositorio: cada uno indica sobre qué commit se hizo el anális
 | 01 | [Análisis general del código](01-analisis-general-del-codigo.md) | Workspace completo: arquitectura, capas, motor de comandos, cálculo, testing, calidad | `3926d21` | 2026-10-11 |
 | 02 | [Cómo iniciar la aplicación](02-como-iniciar-la-aplicacion.md) | Guía verificada de arranque: desktop, CLI headless, snapshot offscreen, web, troubleshooting | `a8285fc` | 2026-10-12 |
 | 03 | [Uso del CLI y su huella](03-uso-del-cli.md) | Flujos de uso verificados, disco/RAM medidos, portabilidad y exe autónomo (crt-static) | `5218368` | 2026-10-12 |
+| 04 | [Consultas de uso](04-consultas-de-uso.md) | Registro creciente de consultas y respuestas (C1-C7), con evidencia verificada | `3455bed` | 2026-10-12 |
 
 ## Convenciones
 

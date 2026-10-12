@@ -32,8 +32,15 @@ con el motor**, sin capa gráfica:
 gridcraft-cli eval '=SUM(1,2,3)'                      # → 6
 gridcraft-cli eval '=XLOOKUP("b",{"a","b"},{1,2})'    # → 2
 gridcraft-cli eval '=PMT(0.05/12, 60, -20000)'        # cuota de un préstamo
-gridcraft-cli eval '=SUM(A1:A9)' --in libro.xlsx      # sobre un archivo existente
+gridcraft-cli eval '=SUM(A1:A3)' --in libro.xlsx      # sobre coordenadas de un archivo real
+gridcraft-cli eval '=SUM(A1:A3)' --in libro.xlsx --sheet Ventas   # hoja específica
+gridcraft-cli eval '=A1*1.21'    --in libro.xlsx --cell B2       # celda de contexto
+gridcraft-cli eval '=B1'         --in libro.xlsx --json           # salida estructurada
 ```
+
+Verificado sobre un archivo generado por CLI (A1=10, A2=20, A3=32, B1=`=SUM(A1:A3)*2`):
+`eval '=SUM(A1:A3)' --in` → `62`; `eval '=B1' --in` → `124` (evalúa la fórmula guardada).
+El archivo nunca se abre en Excel: el motor propio de GridCraft lo lee y evalúa.
 
 ### Inspeccionar archivos
 
